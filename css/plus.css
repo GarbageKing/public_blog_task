@@ -1,0 +1,25 @@
+h1
+{
+    text-align: center;    
+}
+
+#myCarousel
+{
+    min-height: 200px;
+}
+
+#myCarousel .item
+{
+    padding-left: 20%;
+}
+
+#addpostform, #addcomform 
+{
+    text-align: center;
+}
+
+#addpostform textarea, #addcomform textarea
+{
+    width: 50%;
+}
+
