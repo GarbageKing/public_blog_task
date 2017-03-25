@@ -23,6 +23,7 @@
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
         <?php
+        if(count($result)>0){
         foreach($result as $res)
         {           
         ?>
@@ -34,6 +35,7 @@
         
         
         <?php
+        }
         }
         ?>
             </div>
@@ -55,6 +57,7 @@
         <div id='allposts' class='row'>
             
         <?php
+        if(count($result)>0){
         foreach($result as $res)
         {           
         ?>
@@ -68,6 +71,7 @@
         </div>    
             
         <?php
+        }
         }
         ?>
         </div>

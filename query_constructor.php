@@ -20,7 +20,7 @@
             { $nect = 'SELECT blogposts.*, COUNT(id_post) AS post_count '
                     . 'from blogposts LEFT JOIN comments '
                     .'ON blogposts.id = comments.id_post '
-                    . 'GROUP BY blogposts.id order by blogposts.post_date;'; }
+                    . 'GROUP BY blogposts.id order by blogposts.post_date desc;'; }
             if($option == 2)
             { $nect = ' SELECT blogposts.*, COUNT(id_post) AS post_count
     FROM blogposts LEFT JOIN comments 
