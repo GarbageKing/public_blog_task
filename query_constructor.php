@@ -1,6 +1,7 @@
 <?php
 
-  
+        define('allstuff', 1);
+        define('slider', 2);        
         
         function connect(){
 
@@ -8,6 +9,16 @@
         mysql_select_db("public_blog");
 		
 	}
+        
+        function selectOption()
+        {
+            $nect = 'SELECT blogposts.*, COUNT(id_post) AS post_count '
+                    . 'from blogposts LEFT JOIN comments '
+                    .'ON blogposts.id = comments.id_post '
+                    . 'GROUP BY blogposts.id ';
+                    
+            return $nect;
+        }
         
          function selectPosts($option)
         {        
@@ -17,16 +28,15 @@
             
             if($option == 1)
             
-            { $nect = 'SELECT blogposts.*, COUNT(id_post) AS post_count '
-                    . 'from blogposts LEFT JOIN comments '
-                    .'ON blogposts.id = comments.id_post '
-                    . 'GROUP BY blogposts.id order by blogposts.post_date desc;'; }
+            { 
+                $nect = selectOption();
+                $nect .= 'order by blogposts.post_date desc;';
+                }
             if($option == 2)
-            { $nect = ' SELECT blogposts.*, COUNT(id_post) AS post_count
-    FROM blogposts LEFT JOIN comments 
-    ON blogposts.id = comments.id_post
-    GROUP BY blogposts.id
-    ORDER BY post_count DESC LIMIT 5;'; }
+            { 
+              $nect = selectOption(); 
+              $nect .= 'order by post_count desc limit 5;';  
+            }
             
             $result = null;		
             
@@ -43,6 +53,7 @@
             return $result;
         }
         
+               
          function selectOnePost($id)
         {
             

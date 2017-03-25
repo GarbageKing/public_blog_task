@@ -15,7 +15,7 @@
         <?php
         require_once('query_constructor.php');
        
-        $result = selectPosts(2); 
+        $result = selectPosts(slider); 
         ?>
         <div class='row'>
             <div class='col-xs-12'>
@@ -52,7 +52,7 @@
         </div>
         
         <?php
-        $result = selectPosts(1);       
+        $result = selectPosts(allstuff);       
         ?>
         <div id='allposts' class='row'>
             
